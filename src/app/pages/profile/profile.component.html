@@ -1,4 +1,4 @@
-<!-- <form [formGroup]="form" class="col"> -->
+<form class="col" [formGroup]="myForm" novalidate (ngSubmit)="submit()">
     <div class="container">
 
         <div class="info col">
@@ -7,7 +7,7 @@
             <div class="controls four">
                 <div class="form-item col">
                     <label> <span class="required">*</span> Роль </label>
-                    <!-- <p-dropdown formControlName="roleId" [options]="roleOptions"></p-dropdown> -->
+                    <p-dropdown formControlName="role" [options]="roleOptions"></p-dropdown>
                 </div>
                 <div class="form-item col">
                     <label> <span class="required">*</span> Фамилия </label>
@@ -33,12 +33,12 @@
                 </div>
                 <div class="form-item col">
                     <label> <span class="required">*</span> Телефон </label>
-                    <!-- <p-inputMask formControlName="phone" mask="=7 (999) 999-99-99"></p-inputMask> -->
+                    <p-inputMask formControlName="phone" mask="+7 (999) 999-99-99"></p-inputMask>
                 </div>
                 <div class="form-item col">
                     <label> Город </label>
                     <input formControlName="city" pInputText type="text">
-                    <!-- <p-autoComplete [(ngModel)]="selectedItem" [suggestions]="suggestions" (completeMethod)="search($event)"></p-autoComplete> -->
+                    <p-autoComplete formControlName="city" [suggestions]="filteredCities" (completeMethod)="filterCity($event)" field="name"></p-autoComplete>
                 </div>
                 <div class="form-item col">
                     <label> Адрес </label>
@@ -68,7 +68,7 @@
     </div>
     
     <div class="btns row">
-        <button pButton type="submit" label="Сохранить"></button>
+        <button pButton type="submit" label="Сохранить"  [disabled]="myForm.invalid"></button>
         <button pButton type="button" label="Изменить пароль" class="p-button-outlined"></button>
     </div>
-<!-- </form> -->
+</form>

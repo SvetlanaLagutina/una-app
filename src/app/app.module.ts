@@ -7,6 +7,13 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { MainComponent } from './pages/main/main.component';
 import { MenuHeaderComponent } from './features/menu-header/menu-header.component';
 import { NavMenuComponent } from './features/nav-menu/nav-menu.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
+import { ReactiveFormsModule }   from '@angular/forms';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { ButtonModule } from 'primeng/button';
+import { CityService } from './services/cityservice';
 
 @NgModule({
   declarations: [
@@ -14,13 +21,19 @@ import { NavMenuComponent } from './features/nav-menu/nav-menu.component';
     ProfileComponent,
     MainComponent,
     MenuHeaderComponent,
-    NavMenuComponent
+    NavMenuComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DropdownModule,
+    InputMaskModule,
+    InputTextModule,
+    ReactiveFormsModule,
+    AutoCompleteModule,
+    ButtonModule,
   ],
-  providers: [],
+  providers: [CityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
