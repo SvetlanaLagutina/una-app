@@ -1,0 +1,74 @@
+<!-- <form [formGroup]="form" class="col"> -->
+    <div class="container">
+
+        <div class="info col">
+            <h2>Основные данные</h2>
+    
+            <div class="controls four">
+                <div class="form-item col">
+                    <label> <span class="required">*</span> Роль </label>
+                    <!-- <p-dropdown formControlName="roleId" [options]="roleOptions"></p-dropdown> -->
+                </div>
+                <div class="form-item col">
+                    <label> <span class="required">*</span> Фамилия </label>
+                    <input formControlName="lastName" pInputText type="text">
+                </div>
+                <div class="form-item col">
+                    <label> <span class="required">*</span> Имя </label>
+                    <input formControlName="firstName" pInputText type="text">
+                </div>
+                <div class="form-item col">
+                    <label> Отчество </label>
+                    <input formControlName="middleName" pInputText type="text">
+                </div>
+            </div>
+        </div>
+    
+        <div class="info col">
+            <h2>Контактные данные</h2>
+            <div class="controls four">
+                <div class="form-item col">
+                    <label> <span class="required">*</span> E-mail </label>
+                    <input formControlName="email" pInputText type="text">
+                </div>
+                <div class="form-item col">
+                    <label> <span class="required">*</span> Телефон </label>
+                    <!-- <p-inputMask formControlName="phone" mask="=7 (999) 999-99-99"></p-inputMask> -->
+                </div>
+                <div class="form-item col">
+                    <label> Город </label>
+                    <input formControlName="city" pInputText type="text">
+                    <!-- <p-autoComplete [(ngModel)]="selectedItem" [suggestions]="suggestions" (completeMethod)="search($event)"></p-autoComplete> -->
+                </div>
+                <div class="form-item col">
+                    <label> Адрес </label>
+                    <input formControlName="address" pInputText type="text">
+                </div>
+            </div>
+        </div>
+    
+        <div class="info col">
+            <h2>Сведения о работе</h2>
+    
+            <div class="controls three">
+                <div class="form-item col">
+                    <label> <span class="required">*</span> Должность </label>
+                    <input formControlName="position" pInputText type="text">
+                </div>
+                <div class="form-item col">
+                    <label>Подразделение </label>
+                    <input formControlName="division" pInputText type="text">
+                </div>
+                <div class="form-item col">
+                    <label>Руководитель </label>
+                    <input formControlName="supervisor" pInputText type="text">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="btns row">
+        <button pButton type="submit" label="Сохранить"></button>
+        <button pButton type="button" label="Изменить пароль" class="p-button-outlined"></button>
+    </div>
+<!-- </form> -->

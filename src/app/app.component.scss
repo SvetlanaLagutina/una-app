@@ -1,0 +1,24 @@
+:host {
+    display: grid;
+    grid-template-columns: 330px 1fr;
+    gap: 50px 30px;
+    grid-template-areas:
+        'menu header'
+        'menu main';
+    padding-right: 30px;
+
+    app-nav-menu {
+        grid-area: menu;
+    }
+
+    app-menu-header {
+        grid-area: header;
+    }
+
+    main {
+        grid-area: main;
+        padding-bottom: 50px;
+
+        min-height: calc(100vh - 140px);
+    }
+}

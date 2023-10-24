@@ -1,0 +1,38 @@
+* {
+    --text-color: #21212F;
+    --main-color: #4A55A2;
+    --dark-main-color: #3A4385;
+    --bg-color: #F0F7FF;
+    --dark-grey-color: #737373;
+    --grey-color: #B9BCC0;
+    --light-grey-color: #ECECEC;
+    --very-light-grey-color: #F9F9FC;
+    --accent-color: #CC0388;
+    --accent-color: rgb(204, 3, 136);
+    --light-accent-color: #FFE3F6;
+    --green-color: #377E36;
+    --light-green-color: #E0F0E4;
+    --red-color: #B12F30;
+    --light-red-color: #FEECEB;
+    --yellow-color: #F6CF7D;
+    --light-yellow-color: #FBDE9D;
+    --violet-color: #A4C2DD;
+    --light-violet-color: #C3D3F3;
+    --aqua-color: #A4CFDD;
+    --light-aqua-color: #C9E8F2;
+    --blue-color: #95B2FC;
+    --light-blue-color: #BED8FF;
+
+    --main-gradient: linear-gradient(#316FCB, #627DDB);
+    --light-gradient: linear-gradient(#ADC1F6, #CFE8FF);
+    --green-gradient: linear-gradient(#98CFA7, #BDF0CB);
+    --aqua-gradient: linear-gradient(#A4CFDD, #C9E8F2);
+    --yellow-gradient: linear-gradient(#F4B839, #F6CF7D);
+
+    --shadow-sm: 0 0 3px 0 rgba(4, 21, 46, 0.25);
+    // box-shadow: 0px 0px 3px 0px #04152E40;
+
+    --shadow-lg: 0 4px 30px 0 rgba(46, 45, 116, 0.1);
+
+    --icon-accent-color-filter: url('/assets/svg-filters/accent-filter.svg#recolor');
+}
