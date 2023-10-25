@@ -1,1 +1,95 @@
-<p>{{mainText}}</p>
+<div class="container">
+    <h1>{{mainText}}</h1>
+    <div class="table">
+        <p-table class="table" [value]="itemsComments" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="caption"> Комментарии </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Номер</th>
+                    <th>postId</th>
+                    <th>userId</th>
+                    <th>Комментарий</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-itemsComment>
+                <tr>
+                    <td>{{ itemsComment.id }}</td>
+                    <td>{{ itemsComment.postId }}</td>
+                    <td>{{ itemsComment.userId }}</td>
+                    <td>{{ itemsComment.comment }}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary"> Footer </ng-template>
+        </p-table>
+    </div>
+    <div class="table">
+        <p-table class="table" [value]="itemsUsers" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="caption"> Users </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>id</th>
+                    <th>firstname</th>
+                    <th>lastname</th>
+                    <th>email</th>
+                    <th>birthDate</th>
+                    <th>login</th>
+                    <th>address</th>
+                    <th>phone</th>
+                    <th>website</th>
+                    <th>company</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-itemsUser>
+                <tr>
+                    <td>{{ itemsUser.id }}</td>
+                    <td>{{ itemsUser.firstname }}</td>
+                    <td>{{ itemsUser.lastname }}</td>
+                    <td>{{ itemsUser.email }}</td>
+                    <td>{{ itemsUser.birthDate }}</td>
+                    <td>{{ itemsUser.login }}</td>
+                    <td>{{ itemsUser.address }}</td>
+                    <td>{{ itemsUser.phone }}</td>
+                    <td>{{ itemsUser.website }}</td>
+                    <td>{{ itemsUser.company }}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary"> Footer </ng-template>
+        </p-table>
+    </div>
+    <div class="table">
+        <p-table class="table" [value]="itemsPosts" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>id</th>
+                    <th>slug</th>
+                    <th>url</th>
+                    <th>title</th>
+                    <th>content</th>
+                    <th>image</th>
+                    <th>thumbnail</th>
+                    <th>status</th>
+                    <th>category</th>
+                    <th>publishedAt</th>
+                    <th>updatedAt</th>
+                    <th>userId</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-itemsPost>
+                <tr>
+                    <td>{{ itemsPost.id }}</td>
+                    <td>{{ itemsPost.slug }}</td>
+                    <td>{{ itemsPost.url }}</td>
+                    <td>{{ itemsPost.title }}</td>
+                    <td>{{ itemsPost.content }}</td>
+                    <td>{{ itemsPost.image }}</td>
+                    <td>{{ itemsPost.thumbnail }}</td>
+                    <td>{{ itemsPost.status }}</td>
+                    <td>{{ itemsPost.category }}</td>
+                    <td>{{ itemsPost.publishedAt }}</td>
+                    <td>{{ itemsPost.updatedAt }}</td>
+                    <td>{{ itemsPost.userId }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
