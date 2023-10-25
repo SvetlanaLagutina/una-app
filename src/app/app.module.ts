@@ -10,6 +10,7 @@ import { NavMenuComponent } from './features/nav-menu/nav-menu.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputMaskModule } from 'primeng/inputmask';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ReactiveFormsModule }   from '@angular/forms';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
@@ -29,6 +30,7 @@ import { ButtonModule } from 'primeng/button';
     DropdownModule,
     InputMaskModule,
     InputTextModule,
+    InputTextareaModule,
     ReactiveFormsModule,
     AutoCompleteModule,
     ButtonModule,

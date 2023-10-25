@@ -65,10 +65,38 @@
                 </div>
             </div>
         </div>
+        <div class="btns row">
+            <button pButton type="submit" label="Сохранить"  [disabled]="myForm.invalid"></button>
+            <button pButton type="button" label="Изменить пароль" class="p-button-outlined"></button>
+        </div>
     </div>
-    
-    <div class="btns row">
-        <button pButton type="submit" label="Сохранить"  [disabled]="myForm.invalid"></button>
-        <button pButton type="button" label="Изменить пароль" class="p-button-outlined"></button>
+</form>
+
+<form class="col form" [formGroup]="form" (ngSubmit)="submitForm()"> 
+    <div class="container">
+        <div class="info col">
+            <h2>Дополнительная информация</h2>
+
+            <div class="controls three">
+                <div class="form-item col">
+                    <label><span class="required">*</span>Имя</label>
+                    <span class="p-float-label">
+                        <input formControlName="userName" id="float-input" type="text" pInputText> 
+                        <label for="float-input">Username</label>
+                    </span>
+                </div>
+                <div class="form-item col">
+                    <label>Описание</label>
+                    <textarea formControlName="description" pInputTextarea></textarea>
+                </div>
+                <div class="form-item col">
+                    <label>Роль</label>
+                    <p-dropdown formControlName="role" [options]="role2" [(ngModel)]="selectedRole" optionLabel="name"></p-dropdown>
+                </div>
+            </div>
+        </div>
+        <div class="btns row">
+            <button pButton type="submit" label="Сохранить"  [disabled]="form.invalid"></button>
+        </div>
     </div>
 </form>
