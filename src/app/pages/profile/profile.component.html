@@ -1,4 +1,4 @@
-<form class="col" [formGroup]="myForm" novalidate (ngSubmit)="submit()">
+<form class="col" [formGroup]="myForm" (ngSubmit)="submit()">
     <div class="container">
 
         <div class="info col">
@@ -37,8 +37,8 @@
                 </div>
                 <div class="form-item col">
                     <label> Город </label>
-                    <input formControlName="city" pInputText type="text">
-                    <p-autoComplete formControlName="city" [suggestions]="filteredCities" (completeMethod)="filterCity($event)" field="name"></p-autoComplete>
+                    <!-- <input formControlName="city" pInputText type="text"> -->
+                    <p-autoComplete formControlName="city" [suggestions]="filteredCities" (completeMethod)="filterCity($event)" field="label"></p-autoComplete>
                 </div>
                 <div class="form-item col">
                     <label> Адрес </label>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="form-item col">
                     <label>Подразделение </label>
-                    <input formControlName="division" pInputText type="text">
+                    <input formControlName="department" pInputText type="text">
                 </div>
                 <div class="form-item col">
                     <label>Руководитель </label>

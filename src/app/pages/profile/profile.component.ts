@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SelectItem } from 'primeng/api';
 import { Role } from '../../models/role.enum';
 import { ROLE_OPTIONS } from '../../models/role-options';
-import { CityService } from 'src/app/services/cityservice';
+import { Cities } from '../../models/cities';
 
 interface AutoCompleteCompleteEvent {
   originalEvent: Event;
@@ -15,16 +15,20 @@ interface AutoCompleteCompleteEvent {
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent implements OnInit {
-  cities: any[] | undefined;
 
-  filteredCities: any[] | undefined;
+export class ProfileComponent implements OnInit {
+
+  cities: SelectItem[] = Cities;
+
+  filteredCities: SelectItem[];
 
   roleOptions: SelectItem<Role>[] = ROLE_OPTIONS;
   myForm: FormGroup;
 
+  ngOnInit() {
 
-  constructor(private cityService: CityService){
+    this.cities = Cities;
+    
     this.myForm = new FormGroup({
       role: new FormControl<string>(Role.Administrator, Validators.required),
       lastName: new FormControl<string>('', Validators.required),
@@ -38,29 +42,19 @@ export class ProfileComponent implements OnInit {
   
       position: new FormControl<string>('', Validators.required),
       department: new FormControl<string>('',),
-      boss: new FormControl<string>('',),
+      supervisor: new FormControl<string>('',),
     });
   }
 
-  ngOnInit() {
-    this.cityService.getCities().then((cities) => {
-        this.cities = cities;
-    });
-  }
-  
+
+
   filterCity(event: AutoCompleteCompleteEvent) {
-    let filtered: any[] = [];
     let query = event.query;
 
-    for (let i = 0; i < (this.cities as any[]).length; i++) {
-        let city = (this.cities as any[])[i];
-        if (city.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
-            filtered.push(city);
-        }
-    }
-
-    this.filteredCities = filtered;
+    this.filteredCities = this.cities.filter(c => c.label!.toLowerCase().indexOf(query.toLowerCase()) >= 0);
   }
+
+  
 
   submit(): void {
     console.log(this.myForm.value);
