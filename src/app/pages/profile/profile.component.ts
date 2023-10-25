@@ -4,11 +4,8 @@ import { SelectItem } from 'primeng/api';
 import { Role } from '../../models/role.enum';
 import { ROLE_OPTIONS } from '../../models/role-options';
 import { Cities } from '../../models/cities';
+import { IAutoCompleteEvent } from '../../models/autocompleteevent';
 
-interface AutoCompleteCompleteEvent {
-  originalEvent: Event;
-  query: string;
-}
 interface Roles {
   name: string,
   code: string
@@ -66,7 +63,7 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  filterCity(event: AutoCompleteCompleteEvent) {
+  filterCity(event: IAutoCompleteEvent) {
     let query = event.query;
 
     this.filteredCities = this.cities.filter(c => c.label!.toLowerCase().indexOf(query.toLowerCase()) >= 0);
