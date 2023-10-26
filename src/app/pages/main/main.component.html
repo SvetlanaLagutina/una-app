@@ -30,10 +30,13 @@
                     <th>id</th>
                     <th>firstname</th>
                     <th>lastname</th>
+                    <th>login</th>
                     <th>email</th>
                     <th>birthDate</th>
-                    <th>login</th>
-                    <th>address</th>
+                    <th>address city</th>
+                    <th>street</th>
+                    <th>suite</th>
+                    <th>zipcode</th>
                     <th>phone</th>
                     <th>website</th>
                     <th>company</th>
@@ -44,13 +47,16 @@
                     <td>{{ itemsUser.id }}</td>
                     <td>{{ itemsUser.firstname }}</td>
                     <td>{{ itemsUser.lastname }}</td>
+                    <td>{{ itemsUser.login.username }}</td>
                     <td>{{ itemsUser.email }}</td>
                     <td>{{ itemsUser.birthDate }}</td>
-                    <td>{{ itemsUser.login }}</td>
-                    <td>{{ itemsUser.address }}</td>
+                    <td>{{ itemsUser.address.city }}</td>
+                    <td>{{ itemsUser.address.street }}</td>
+                    <td>{{ itemsUser.address.suite }}</td>
+                    <td>{{ itemsUser.address.zipcode }}</td>
                     <td>{{ itemsUser.phone }}</td>
                     <td>{{ itemsUser.website }}</td>
-                    <td>{{ itemsUser.company }}</td>
+                    <td>{{ itemsUser.company.name }}</td>
                 </tr>
             </ng-template>
             <ng-template pTemplate="summary"> Footer </ng-template>
@@ -80,13 +86,13 @@
                     <td>{{ itemsPost.slug }}</td>
                     <td>{{ itemsPost.url }}</td>
                     <td>{{ itemsPost.title }}</td>
-                    <td>{{ itemsPost.content }}</td>
+                    <td>{{ itemsPost.content | first100 }}</td>
                     <td>{{ itemsPost.image }}</td>
                     <td>{{ itemsPost.thumbnail }}</td>
                     <td>{{ itemsPost.status }}</td>
                     <td>{{ itemsPost.category }}</td>
-                    <td>{{ itemsPost.publishedAt }}</td>
-                    <td>{{ itemsPost.updatedAt }}</td>
+                    <td>{{ itemsPost.publishedAt | dottdateformat }}</td>
+                    <td>{{ itemsPost.updatedAt | datetimeformat }}</td>
                     <td>{{ itemsPost.userId }}</td>
                 </tr>
             </ng-template>

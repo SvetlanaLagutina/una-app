@@ -16,6 +16,9 @@ import { ReactiveFormsModule }   from '@angular/forms';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { First100Pipe } from './first100.pipe';
+import { DottDateFormat } from './dottdateformat.pipe';
+import { DateTimeFormat } from './datetimeformat.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { TableModule } from 'primeng/table';
     MainComponent,
     MenuHeaderComponent,
     NavMenuComponent,
+    First100Pipe,
+    DottDateFormat,
+    DateTimeFormat
   ],
   imports: [
     BrowserModule,
