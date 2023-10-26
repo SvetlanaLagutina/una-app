@@ -16,6 +16,8 @@ import { ReactiveFormsModule }   from '@angular/forms';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { ChartModule } from 'primeng/chart';
+
 import { First100Pipe } from './first100.pipe';
 import { DottDateFormat } from './dottdateformat.pipe';
 import { DateTimeFormat } from './datetimeformat.pipe';
@@ -44,6 +46,7 @@ import { DateTimeFormat } from './datetimeformat.pipe';
     ButtonModule,
     HttpClientModule,
     TableModule,
+    ChartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

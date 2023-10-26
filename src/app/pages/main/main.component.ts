@@ -16,12 +16,69 @@ export class MainComponent implements OnInit {
   itemsUsers: IUser[] = [];
   itemsComments: IComment[] = [];
 
+  data: any;
+  options: any;
+  
   constructor(private placeholderApi: PlaceholderApi) { }
 
   ngOnInit(): void {
     this.getDataPosts();
     this.getDataUsers();
     this.getDataComments();
+
+    this.data = {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+          {
+              label: 'First dataset',
+              backgroundColor: '#B0E0E6',
+              borderColor: '#00BFFF',
+              data: [65, 59, 80, 81, 56, 55, 40]
+          },
+          {
+              label: 'Second dataset',
+              backgroundColor: '#D8BFD8',
+              borderColor: '#9932CC',
+              data: [28, 48, 40, 19, 86, 27, 90]
+          }
+      ]
+  };
+
+  this.options = {
+      indexAxis: 'y',
+      maintainAspectRatio: false,
+      aspectRatio: 0.8,
+      plugins: {
+          legend: {
+              labels: {
+                  color: '#191970'
+              }
+          }
+      },
+      scales: {
+          x: {
+              ticks: {
+                  color: '#191970',
+                  font: {
+                      weight: 500
+                  }
+              },
+              grid: {
+                  color: '#191970',
+                  drawBorder: false
+              }
+          },
+          y: {
+              ticks: {
+                  color: '#191970'
+              },
+              grid: {
+                  color: '#191970',
+                  drawBorder: false
+              }
+          }
+      }
+    };
   }
 
   getDataPosts(): void {
@@ -50,4 +107,5 @@ export class MainComponent implements OnInit {
           console.log(this.itemsComments);
         })
   }
+
 }
