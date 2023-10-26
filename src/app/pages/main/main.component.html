@@ -1,5 +1,11 @@
 <div class="container">
     <h1>{{mainText}}</h1>
+    <div class="bar">
+        <p-chart type="bar" [data]="dataBar" [options]="optionsBar"></p-chart>
+    </div>
+    <div class="line">
+        <p-chart type="line" [data]="dataLine" [options]="optionsLine"></p-chart>
+    </div>
     <div class="table">
         <p-table class="table" [value]="itemsComments" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
             <ng-template pTemplate="caption"> Комментарии </ng-template>
@@ -64,6 +70,7 @@
     </div>
     <div class="table">
         <p-table class="table" [value]="itemsPosts" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="caption"> Posts </ng-template>
             <ng-template pTemplate="header">
                 <tr>
                     <th>id</th>
@@ -85,7 +92,11 @@
                     <td>{{ itemsPost.id }}</td>
                     <td>{{ itemsPost.slug }}</td>
                     <td>{{ itemsPost.url }}</td>
-                    <td>{{ itemsPost.title }}</td>
+                    <td>
+                        <a [title]="itemsPost.title" routerLink="/posts/{{itemsPost.id}}">
+                            {{ itemsPost.title }}
+                        </a>
+                    </td>
                     <td>{{ itemsPost.content | first100 }}</td>
                     <td>{{ itemsPost.image }}</td>
                     <td>{{ itemsPost.thumbnail }}</td>
@@ -97,11 +108,5 @@
                 </tr>
             </ng-template>
         </p-table>
-    </div>
-    <div class="bar">
-        <p-chart type="bar" [data]="dataBar" [options]="optionsBar"></p-chart>
-    </div>
-    <div class="line">
-        <p-chart type="line" [data]="dataLine" [options]="optionsLine"></p-chart>
     </div>
 </div>

@@ -1,0 +1,8 @@
+<h2>Post Details</h2>
+
+<div *ngIf="post">
+  <h3>title of id {{ post.id }} : {{ post.title }}</h3>
+  <h4>category: {{ post.category }}</h4>
+  <p>content: {{ post.content }}</p>
+</div>
+<button pButton type="button" label="Назад" (click)="goBack()" class="p-button-outlined"></button>

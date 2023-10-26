@@ -21,6 +21,7 @@ import { ChartModule } from 'primeng/chart';
 import { First100Pipe } from './first100.pipe';
 import { DottDateFormat } from './dottdateformat.pipe';
 import { DateTimeFormat } from './datetimeformat.pipe';
+import { PostDetailsComponent } from './pages/post-details/post-details.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DateTimeFormat } from './datetimeformat.pipe';
     NavMenuComponent,
     First100Pipe,
     DottDateFormat,
-    DateTimeFormat
+    DateTimeFormat,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,

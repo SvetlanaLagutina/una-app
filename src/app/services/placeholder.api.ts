@@ -7,17 +7,24 @@ import { IComment } from "../models/comment";
 
 @Injectable({ providedIn: 'root' })
 export class PlaceholderApi {
+    private apiUrl = 'https://jsonplaceholder.org/';
+
     constructor(private http: HttpClient) { }
 
     getItemsPosts(): Observable<IPost[]> {
-        return this.http.get<IPost[]>('https://jsonplaceholder.org/posts');
+        return this.http.get<IPost[]>(`${this.apiUrl}posts`);
+    }
+
+    getItemsPost(id: number): Observable<IPost> {
+        const url = `${this.apiUrl}posts/${id}`
+        return this.http.get<IPost>(url)
     }
 
     getItemsUsers(): Observable<IUser[]> {
-        return this.http.get<IUser[]>('https://jsonplaceholder.org/users');
+        return this.http.get<IUser[]>(`${this.apiUrl}users`);
     }
 
     getItemsComments(): Observable<IComment[]> {
-        return this.http.get<IComment[]>('https://jsonplaceholder.org/comments');
+        return this.http.get<IComment[]>(`${this.apiUrl}comments`);
     }
 }
