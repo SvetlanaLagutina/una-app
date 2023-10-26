@@ -16,8 +16,11 @@ export class MainComponent implements OnInit {
   itemsUsers: IUser[] = [];
   itemsComments: IComment[] = [];
 
-  data: any;
-  options: any;
+  dataBar: any;
+  optionsBar: any;
+
+  dataLine: any;
+  optionsLine: any;
   
   constructor(private placeholderApi: PlaceholderApi) { }
 
@@ -26,7 +29,7 @@ export class MainComponent implements OnInit {
     this.getDataUsers();
     this.getDataComments();
 
-    this.data = {
+    this.dataBar = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [
           {
@@ -44,7 +47,7 @@ export class MainComponent implements OnInit {
       ]
   };
 
-  this.options = {
+  this.optionsBar = {
       indexAxis: 'y',
       maintainAspectRatio: false,
       aspectRatio: 0.8,
@@ -75,6 +78,65 @@ export class MainComponent implements OnInit {
               grid: {
                   color: '#191970',
                   drawBorder: false
+              }
+          }
+      }
+    };
+
+    this.dataLine = {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+          {
+              type: 'line',
+              label: 'Dataset 1',
+              borderColor: '#008080',
+              borderWidth: 2,
+              fill: false,
+              tension: 0.4,
+              data: [50, 25, 12, 48, 56, 76, 42]
+          },
+          {
+              type: 'bar',
+              label: 'Dataset 2',
+              backgroundColor: '#20B2AA',
+              data: [21, 84, 24, 75, 37, 65, 34],
+              borderColor: 'white',
+              borderWidth: 2
+          },
+          {
+              type: 'bar',
+              label: 'Dataset 3',
+              backgroundColor: '#FF8C00',
+              data: [41, 52, 24, 74, 23, 21, 32]
+          }
+      ]
+  };
+  
+  this.optionsLine = {
+      maintainAspectRatio: false,
+      aspectRatio: 0.6,
+      plugins: {
+          legend: {
+              labels: {
+                  color: '#4682B4'
+              }
+          }
+      },
+      scales: {
+          x: {
+              ticks: {
+                  color: '#4682B4'
+              },
+              grid: {
+                  color: '#5F9EA0'
+              }
+          },
+          y: {
+              ticks: {
+                  color: '#4682B4'
+              },
+              grid: {
+                  color: '#5F9EA0'
               }
           }
       }

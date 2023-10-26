@@ -98,5 +98,10 @@
             </ng-template>
         </p-table>
     </div>
-    <p-chart type="bar" [data]="data" [options]="options"></p-chart>
+    <div class="bar">
+        <p-chart type="bar" [data]="dataBar" [options]="optionsBar"></p-chart>
+    </div>
+    <div class="line">
+        <p-chart type="line" [data]="dataLine" [options]="optionsLine"></p-chart>
+    </div>
 </div>
