@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Post } from "../../models/post";
+import { PostDto } from "../models/post.dto";
 import { User } from "../../models/user";
 import { Comment } from "../../models/comment";
 
@@ -11,13 +11,13 @@ export class PlaceholderApi {
 
     constructor(private http: HttpClient) { }
 
-    getItemsPosts(): Observable<Post[]> {
-        return this.http.get<Post[]>(`${this.apiUrl}/posts`);
+    getItemsPosts(): Observable<PostDto[]> {
+        return this.http.get<PostDto[]>(`${this.apiUrl}/posts`);
     }
 
-    getItemsPost(id: number): Observable<Post> {
+    getItemsPost(id: number): Observable<PostDto> {
         const url = `${this.apiUrl}/posts/${id}`
-        return this.http.get<Post>(url)
+        return this.http.get<PostDto>(url)
     }
 
     getItemsUsers(): Observable<User[]> {

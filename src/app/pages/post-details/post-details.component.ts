@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Post } from 'src/app/models/post';
+import { Post } from 'src/app/pages/post-details/post';
+import { PostDto } from 'src/app/api/models/post.dto';
+import { mapPostDtoToFull } from './map-post-dto-to full.function';
 import { PlaceholderApi } from 'src/app/api/services/placeholder.api';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-post-details',
@@ -15,7 +16,6 @@ export class PostDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private placeholderApi: PlaceholderApi,
-    private location: Location
   ) {}
 
   ngOnInit() {
@@ -25,10 +25,9 @@ export class PostDetailsComponent implements OnInit {
   getDataPost(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.placeholderApi.getItemsPost(id)
-      .subscribe(post => this.post = post);
-  }
-  
-  goBack(): void {
-    this.location.back();
+      .subscribe((dto: PostDto) => {
+        this.post = mapPostDtoToFull(dto);
+        console.log(this.post);
+      });
   }
 }

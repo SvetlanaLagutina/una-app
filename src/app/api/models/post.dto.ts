@@ -1,4 +1,4 @@
-export interface Post {
+export interface PostDto {
     id: number;
     slug: string;
     url: string;

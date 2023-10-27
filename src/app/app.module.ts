@@ -22,6 +22,11 @@ import { First100Pipe } from './pipes/first100.pipe';
 import { DottDateFormat } from './pipes/dottdateformat.pipe';
 import { DateTimeFormat } from './pipes/datetimeformat.pipe';
 import { PostDetailsComponent } from './pages/post-details/post-details.component';
+import { PostsPageComponent } from './pages/posts-page/posts-page.component';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+registerLocaleData(localeRu);
 
 @NgModule({
   declarations: [
@@ -33,7 +38,8 @@ import { PostDetailsComponent } from './pages/post-details/post-details.componen
     First100Pipe,
     DottDateFormat,
     DateTimeFormat,
-    PostDetailsComponent
+    PostDetailsComponent,
+    PostsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,10 @@ import { PostDetailsComponent } from './pages/post-details/post-details.componen
     TableModule,
     ChartModule,
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'ru-RU'},
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'RUB'},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

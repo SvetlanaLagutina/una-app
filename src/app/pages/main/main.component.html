@@ -68,45 +68,4 @@
             <ng-template pTemplate="summary"> Footer </ng-template>
         </p-table>
     </div>
-    <div class="table">
-        <p-table class="table" [value]="itemsPosts" [tableStyle]="{ 'min-width': '50rem' }">
-            <ng-template pTemplate="caption"> Posts </ng-template>
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>id</th>
-                    <th>slug</th>
-                    <th>url</th>
-                    <th>title</th>
-                    <th>content</th>
-                    <th>image</th>
-                    <th>thumbnail</th>
-                    <th>status</th>
-                    <th>category</th>
-                    <th>publishedAt</th>
-                    <th>updatedAt</th>
-                    <th>userId</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-itemsPost>
-                <tr>
-                    <td>{{ itemsPost.id }}</td>
-                    <td>{{ itemsPost.slug }}</td>
-                    <td>{{ itemsPost.url }}</td>
-                    <td>
-                        <a [title]="itemsPost.title" routerLink="/posts/{{itemsPost.id}}">
-                            {{ itemsPost.title }}
-                        </a>
-                    </td>
-                    <td>{{ itemsPost.content | first100 }}</td>
-                    <td>{{ itemsPost.image }}</td>
-                    <td>{{ itemsPost.thumbnail }}</td>
-                    <td>{{ itemsPost.status }}</td>
-                    <td>{{ itemsPost.category }}</td>
-                    <td>{{ itemsPost.publishedAt | dottdateformat }}</td>
-                    <td>{{ itemsPost.updatedAt | datetimeformat }}</td>
-                    <td>{{ itemsPost.userId }}</td>
-                </tr>
-            </ng-template>
-        </p-table>
-    </div>
 </div>

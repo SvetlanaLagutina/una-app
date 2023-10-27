@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from '../../models/post';
 import { User } from '../../models/user';
 import { Comment } from '../../models/comment';
 import { PlaceholderApi } from 'src/app/api/services/placeholder.api';
@@ -12,7 +11,6 @@ import { PlaceholderApi } from 'src/app/api/services/placeholder.api';
 export class MainComponent implements OnInit {
   mainText = 'Main page';
 
-  itemsPosts: Post[] = [];
   itemsUsers: User[] = [];
   itemsComments: Comment[] = [];
 
@@ -25,7 +23,6 @@ export class MainComponent implements OnInit {
   constructor(private placeholderApi: PlaceholderApi) { }
 
   ngOnInit(): void {
-    this.getDataPosts();
     this.getDataUsers();
     this.getDataComments();
 
@@ -141,15 +138,6 @@ export class MainComponent implements OnInit {
           }
       }
     };
-  }
-
-  getDataPosts(): void {
-    this.placeholderApi
-        .getItemsPosts()
-        .subscribe((data: Post[]) => {
-          this.itemsPosts = data;
-          console.log(this.itemsPosts);
-        })
   }
 
   getDataUsers(): void {

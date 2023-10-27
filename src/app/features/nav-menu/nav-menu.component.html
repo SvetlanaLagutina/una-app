@@ -1,7 +1,7 @@
 <img src="/assets/logo/Logo.svg" class="logo" alt="LOGO">
 
 <div class="col list">
-    <a [routerLink]="['/']" routerLinkActive="active" class="menu-item row">
+    <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="menu-item row">
         <!-- <img src="/assets/logo/home.svg" class="menu-item-icon"> -->
         <i class="pi pi-home"></i>
         <span> Главная </span>
@@ -11,5 +11,10 @@
         <!-- <img src="/assets/logo/profile.svg" class="menu-item-icon"> -->
         <i class="pi pi-user"></i>
         <span> Мой профиль </span>
+    </a>
+
+    <a [routerLink]="['/posts']" routerLinkActive="active" class="menu-item row">
+        <i class="pi pi-book"></i>
+        <span> Посты </span>
     </a>
 </div>
