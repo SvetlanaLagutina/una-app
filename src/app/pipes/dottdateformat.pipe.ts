@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
     name: 'dottdateformat'
 })
 export class DottDateFormat implements PipeTransform {
-    transform(value: string, args?: any) {
+    transform(value: string): string {
         return value.replace(/\//g, '.').slice(0, -9);
     }
 }

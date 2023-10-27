@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
     name: 'first100'
 })
 export class First100Pipe implements PipeTransform {
-    transform(value: string, limit = 101, ellipsis = '...') {
+    transform(value: string, limit = 101, ellipsis = '...'): string {
         return value.length > limit ? value.slice(0, limit) + ellipsis : value;
     }
 }

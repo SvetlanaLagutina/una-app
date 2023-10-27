@@ -18,9 +18,9 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { ChartModule } from 'primeng/chart';
 
-import { First100Pipe } from './first100.pipe';
-import { DottDateFormat } from './dottdateformat.pipe';
-import { DateTimeFormat } from './datetimeformat.pipe';
+import { First100Pipe } from './pipes/first100.pipe';
+import { DottDateFormat } from './pipes/dottdateformat.pipe';
+import { DateTimeFormat } from './pipes/datetimeformat.pipe';
 import { PostDetailsComponent } from './pages/post-details/post-details.component';
 
 @NgModule({
