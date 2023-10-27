@@ -1,4 +1,4 @@
-interface ILogin {
+interface Login {
     uuid: string;
     username: string;
     password: string;
@@ -7,34 +7,34 @@ interface ILogin {
     registered: string;
 }
 
-interface IGeo {
+interface Geo {
     lat: string;
     lng: string;
 }
 
-interface IAddress extends IGeo {
+interface Address extends Geo {
     street: string;
     suite: string;
     city: string;
     zipcode: string;
-    geo: IGeo;
+    geo: Geo;
 }
 
-interface ICompany {
+interface Company {
     name: string;
     catchPhrase: string;
     bs: string;
 }
 
-export interface IUser extends ILogin, IAddress, ICompany {
+export interface User extends Login, Address, Company {
     id: number;
     firstname: string;
     lastname: string;
     email: string;
     birthDate: string;
-    login: ILogin;
-    address: IAddress;
+    login: Login;
+    address: Address;
     phone: string;
     website: string;
-    company: ICompany;
+    company: Company;
 }

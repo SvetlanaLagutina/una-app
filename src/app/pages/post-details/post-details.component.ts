@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IPost } from 'src/app/models/post';
-import { PlaceholderApi } from 'src/app/services/placeholder.api';
+import { Post } from 'src/app/models/post';
+import { PlaceholderApi } from 'src/app/api/services/placeholder.api';
 import { Location } from '@angular/common';
 
 @Component({
@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./post-details.component.scss']
 })
 export class PostDetailsComponent implements OnInit {
-  post: IPost;
+  post: Post;
 
   constructor(
     private route: ActivatedRoute,

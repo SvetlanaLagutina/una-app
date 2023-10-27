@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IPost } from '../../models/post';
-import { IUser } from '../../models/user';
-import { IComment } from '../../models/comment';
-import { PlaceholderApi } from 'src/app/services/placeholder.api';
+import { Post } from '../../models/post';
+import { User } from '../../models/user';
+import { Comment } from '../../models/comment';
+import { PlaceholderApi } from 'src/app/api/services/placeholder.api';
 
 @Component({
   selector: 'app-main',
@@ -12,9 +12,9 @@ import { PlaceholderApi } from 'src/app/services/placeholder.api';
 export class MainComponent implements OnInit {
   mainText = 'Main page';
 
-  itemsPosts: IPost[] = [];
-  itemsUsers: IUser[] = [];
-  itemsComments: IComment[] = [];
+  itemsPosts: Post[] = [];
+  itemsUsers: User[] = [];
+  itemsComments: Comment[] = [];
 
   dataBar: any;
   optionsBar: any;
@@ -146,7 +146,7 @@ export class MainComponent implements OnInit {
   getDataPosts(): void {
     this.placeholderApi
         .getItemsPosts()
-        .subscribe((data: IPost[]) => {
+        .subscribe((data: Post[]) => {
           this.itemsPosts = data;
           console.log(this.itemsPosts);
         })
@@ -155,7 +155,7 @@ export class MainComponent implements OnInit {
   getDataUsers(): void {
     this.placeholderApi
         .getItemsUsers()
-        .subscribe((data: IUser[]) => {
+        .subscribe((data: User[]) => {
           this.itemsUsers = data;
           console.log(this.itemsUsers);
         })
@@ -164,7 +164,7 @@ export class MainComponent implements OnInit {
   getDataComments(): void {
     this.placeholderApi
         .getItemsComments()
-        .subscribe((data: IComment[]) => {
+        .subscribe((data: Comment[]) => {
           this.itemsComments = data;
           console.log(this.itemsComments);
         })
