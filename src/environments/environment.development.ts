@@ -1,3 +1,3 @@
 export const environment = {
-    baseUrl: '/api',
+    baseUrl: 'https://jsonplaceholder.org',
 };
