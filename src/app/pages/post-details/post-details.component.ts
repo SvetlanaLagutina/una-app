@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from 'src/app/pages/post-details/post';
 import { PostDto } from 'src/app/api/models/post.dto';
+import { map } from 'rxjs/operators';
 import { mapPostDtoToFull } from './map-post-dto-to full.function';
 import { PlaceholderApi } from 'src/app/api/services/placeholder.api';
 
@@ -24,10 +25,9 @@ export class PostDetailsComponent implements OnInit {
 
   getDataPost(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.placeholderApi.getItemsPost(id)
-      .subscribe((dto: PostDto) => {
-        this.post = mapPostDtoToFull(dto);
-        console.log(this.post);
-      });
+    this.placeholderApi
+      .getItemsPost(id)
+      .pipe(map((dto: PostDto) => this.post = mapPostDtoToFull(dto)))
+      .subscribe(() => console.log(this.post));
   }
 }
