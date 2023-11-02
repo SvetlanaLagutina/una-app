@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlaceholderApi } from 'src/app/api/services/placeholder.api';
 import { PostDto } from 'src/app/api/models/post.dto';
 import { PostShort } from './post-short';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { mapPostDtoToShort } from './map-post-dto-to-short.function';
 
 @Component({
@@ -22,7 +22,15 @@ export class PostsPageComponent implements OnInit{
   getDataPosts(): void {
     this.placeholderApi
         .getItemsPosts()
-        .pipe(map((posts: PostDto[]) => this.itemsPosts = posts.map(dto => mapPostDtoToShort(dto))))
-        .subscribe(() => console.log(this.itemsPosts));
+        .pipe(
+          map(posts => this.mapPostDtoListToPost(posts)),
+          map(posts => this.itemsPosts = posts),
+          tap(posts => console.log(posts)),
+        )
+        .subscribe();
   }
+
+  mapPostDtoListToPost = (posts: PostDto[]): PostShort[] => {
+    return posts.map(dto => mapPostDtoToShort(dto));
+  };
 }
