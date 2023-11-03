@@ -30,19 +30,21 @@ export class PostDetailsComponent implements OnInit {
     this.getDataPost();
 
     combineLatest([
-      this.getDataUsers(),
-      this. getDataComments(), 
+      this.getDataPosts(),
+      this.getDataComments(), 
       this.getDataUsers()
     ])
       .pipe(
-        map(([posts, users, comments]) => ([posts.length, users.length, comments.length])),
-        tap(([postCount, userCount, commentCount]) => console.log(
-          `Posts Latest: ${postCount},
-           Users Latest: ${userCount},
-           Comments Latest: ${commentCount}`
+        map(arr => (
+          {
+            postCount: arr[0].length,
+            userCount: arr[1].length,
+            commentCount: arr[2].length,
+          }
         )),
+        tap((v) => console.log(v))
       )
-      .subscribe(); //{ postCount: number, userCount: number, commentCount: number}
+      .subscribe() //{ postCount: number, userCount: number, commentCount: number}
 
   }
 
