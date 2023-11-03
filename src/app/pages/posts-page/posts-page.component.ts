@@ -24,8 +24,10 @@ export class PostsPageComponent implements OnInit{
         .getItemsPosts()
         .pipe(
           map(posts => this.mapPostDtoListToPost(posts)),
-          map(posts => this.itemsPosts = posts),
-          tap(posts => console.log(posts)),
+          tap(posts => {
+            this.itemsPosts = posts;
+            console.log(posts);
+          }),
         )
         .subscribe();
   }
