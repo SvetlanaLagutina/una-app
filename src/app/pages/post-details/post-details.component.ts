@@ -7,7 +7,7 @@ import { PostDto } from 'src/app/api/models/post.dto';
 import { map, tap, catchError } from 'rxjs/operators';
 import { mapPostDtoToFull } from './map-post-dto-to full.function';
 import { PlaceholderApi } from 'src/app/api/services/placeholder.api';
-import { combineLatest, of } from 'rxjs';
+import { Observable, combineLatest, of } from 'rxjs';
 
 @Component({
   selector: 'app-post-details',
@@ -29,22 +29,18 @@ export class PostDetailsComponent implements OnInit {
   ngOnInit() {
     this.getDataPost();
 
-    this.getDataPosts();
-    this.getDataUsers();
-    this.getDataComments();
-
-    combineLatest<[PostDto, User, Comment]>([
-      this.itemsPosts, this.itemsUsers, this.itemsComments,
+    combineLatest([
+      this.getDataUsers(),
+      this. getDataComments(), 
+      this.getDataUsers()
     ])
       .pipe(
-        // map(([posts, users, comments]) => ([posts.id, users.id, comments.id])),
-        catchError( err => of(`Error: ${err}`)),
-        tap(val => console.log(val)),
+        map(([posts, users, comments]) => ([posts.length, users.length, comments.length])),
         tap(([postCount, userCount, commentCount]) => console.log(
           `Posts Latest: ${postCount},
            Users Latest: ${userCount},
            Comments Latest: ${commentCount}`
-       )),
+        )),
       )
       .subscribe(); //{ postCount: number, userCount: number, commentCount: number}
 
@@ -64,27 +60,18 @@ export class PostDetailsComponent implements OnInit {
       .subscribe();
   }
 
-  getDataUsers(): void {
-    this.placeholderApi
-        .getItemsUsers()
-        .subscribe((data: User[]) => {
-          this.itemsUsers = data;
-        })
+  getDataUsers(): Observable<User[]> {
+    return this.placeholderApi
+               .getItemsUsers()
   }
 
-  getDataComments(): void {
-    this.placeholderApi
-        .getItemsComments()
-        .subscribe((data: Comment[]) => {
-          this.itemsComments = data;
-        })
+  getDataComments(): Observable<Comment[]> {
+    return this.placeholderApi
+               .getItemsComments()
   }
 
-  getDataPosts(): void {
-    this.placeholderApi
-        .getItemsPosts()
-        .subscribe((data: PostDto[]) => {
-          this.itemsPosts = data;
-        })
+  getDataPosts(): Observable<PostDto[]> {
+    return this.placeholderApi
+               .getItemsPosts()
   }
 }
