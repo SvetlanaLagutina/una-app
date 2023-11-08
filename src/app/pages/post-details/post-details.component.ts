@@ -4,10 +4,10 @@ import { Post } from 'src/app/pages/post-details/post';
 import { User } from 'src/app/models/user';
 import { Comment } from 'src/app/models/comment';
 import { PostDto } from 'src/app/api/models/post.dto';
-import { map, tap, catchError } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { mapPostDtoToFull } from './map-post-dto-to full.function';
 import { PlaceholderApi } from 'src/app/api/services/placeholder.api';
-import { Observable, combineLatest, of } from 'rxjs';
+import { Observable, combineLatest} from 'rxjs';
 
 @Component({
   selector: 'app-post-details',
@@ -16,10 +16,10 @@ import { Observable, combineLatest, of } from 'rxjs';
 })
 export class PostDetailsComponent implements OnInit {
   post: Post;
-  itemsPosts: PostDto[];
-  itemsUsers: User[] = [];
-  itemsComments: Comment[] = [];
-  latest: unknown;
+
+  basicData: any;
+  basicOptions: any;
+  data: {postCount: number, userCount: number, commentCount: number};
 
   constructor(
     private route: ActivatedRoute,
@@ -37,14 +37,55 @@ export class PostDetailsComponent implements OnInit {
       .pipe(
         map(arr => (
           {
-            postCount: arr[0].length,
-            userCount: arr[1].length,
-            commentCount: arr[2].length,
+            labels: ['postCount', 'userCount', 'commentCount'],
+            datasets: [
+                {
+                    label: 'Counts',
+                    data: [arr[0].length, arr[1].length, arr[2].length],
+                    backgroundColor: ['rgba(255, 159, 64, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+                    borderColor: ['rgb(255, 159, 64)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)'],
+                    borderWidth: 1
+                }
+            ]
           }
         )),
+        tap(obj => {
+          this.basicData = obj;
+        }),
         tap((v) => console.log(v))
       )
       .subscribe() //{ postCount: number, userCount: number, commentCount: number}
+
+    this.basicOptions = {
+        plugins: {
+            legend: {
+                labels: {
+                    color: '#C71585'
+                }
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: '#CD5C5C'
+                },
+                grid: {
+                    color: '#DA70D6',
+                    drawBorder: false
+                }
+            },
+            x: {
+                ticks: {
+                    color: '#CD5C5C'
+                },
+                grid: {
+                    color: '#DA70D6',
+                    drawBorder: false
+                }
+            }
+        }
+    };
 
   }
 

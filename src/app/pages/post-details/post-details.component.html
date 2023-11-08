@@ -5,4 +5,7 @@
   <h4>category: {{ post.category }}</h4>
   <p>content: {{ post.content }}</p>
 </div>
+<div class="chart">
+  <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
+</div>
 <a pButton type="button" label="Назад" routerLink="/posts/"></a>
