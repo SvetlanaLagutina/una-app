@@ -20,6 +20,7 @@ export class PostDetailsComponent implements OnInit {
   basicData: any;
   basicOptions: any;
   data: {postCount: number, userCount: number, commentCount: number};
+  combined$: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,7 +30,7 @@ export class PostDetailsComponent implements OnInit {
   ngOnInit() {
     this.getDataPost();
 
-    combineLatest([
+    this.combined$ = combineLatest([
       this.getDataPosts(),
       this.getDataComments(), 
       this.getDataUsers()
@@ -48,13 +49,13 @@ export class PostDetailsComponent implements OnInit {
                 }
             ]
           }
-        )),
-        tap(obj => {
-          this.basicData = obj;
-        }),
-        tap((v) => console.log(v))
+        ))
+        // tap(obj => {
+        //   this.basicData = obj;
+        // })
+      //   tap((v) => console.log(`basicData = ${v}`))
       )
-      .subscribe() //{ postCount: number, userCount: number, commentCount: number}
+      // .subscribe() //{ postCount: number, userCount: number, commentCount: number}
 
     this.basicOptions = {
         plugins: {
