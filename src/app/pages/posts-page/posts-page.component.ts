@@ -26,7 +26,6 @@ export class PostsPageComponent implements OnInit{
           map(posts => this.mapPostDtoListToPost(posts)),
           tap(posts => {
             this.itemsPosts = posts;
-            console.log(posts);
           }),
         )
         .subscribe();

@@ -50,12 +50,7 @@ export class PostDetailsComponent implements OnInit {
             ]
           }
         ))
-        // tap(obj => {
-        //   this.basicData = obj;
-        // })
-      //   tap((v) => console.log(`basicData = ${v}`))
       )
-      // .subscribe() //{ postCount: number, userCount: number, commentCount: number}
 
     this.basicOptions = {
         plugins: {
@@ -87,7 +82,6 @@ export class PostDetailsComponent implements OnInit {
             }
         }
     };
-
   }
 
   getDataPost(): void {
@@ -98,7 +92,6 @@ export class PostDetailsComponent implements OnInit {
         map((dto: PostDto) => mapPostDtoToFull(dto)),
         tap(obj => {
           this.post = obj;
-          console.log(this.post);
         }),
       )
       .subscribe();

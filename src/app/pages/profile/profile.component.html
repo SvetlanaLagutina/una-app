@@ -37,7 +37,6 @@
                 </div>
                 <div class="form-item col">
                     <label> Город </label>
-                    <!-- <input formControlName="city" pInputText type="text"> -->
                     <p-autoComplete formControlName="city" [suggestions]="filteredCities" (completeMethod)="filterCity($event)" field="label"></p-autoComplete>
                 </div>
                 <div class="form-item col">

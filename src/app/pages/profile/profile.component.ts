@@ -70,10 +70,8 @@ export class ProfileComponent implements OnInit {
   }
 
   submit(): void {
-    console.log(this.myForm.value);
   }
 
   submitForm(): void {
-    console.log(this.form.value);
   }
 }

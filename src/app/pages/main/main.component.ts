@@ -145,7 +145,6 @@ export class MainComponent implements OnInit {
         .getItemsUsers()
         .subscribe((data: User[]) => {
           this.itemsUsers = data;
-          console.log(this.itemsUsers);
         })
   }
 
@@ -154,8 +153,6 @@ export class MainComponent implements OnInit {
         .getItemsComments()
         .subscribe((data: Comment[]) => {
           this.itemsComments = data;
-          console.log(this.itemsComments);
         })
   }
-
 }
