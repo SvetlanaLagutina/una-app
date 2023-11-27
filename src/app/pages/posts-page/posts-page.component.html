@@ -15,7 +15,7 @@
             <ng-template pTemplate="body" let-itemsPost>
                 <tr>
                     <td><img src="{{ itemsPost.thumbnail }}" alt="{{ itemsPost.title }}" width="100"></td>
-                    <td>{{ itemsPost.id + 1234 + itemsPost.id | currency }}</td>
+                    <td>{{ itemsPost.id + (1234567890123456) + itemsPost.id | thousand }}</td>
                     <td>
                         <a [title]="itemsPost.title" routerLink="/posts/{{itemsPost.id}}">
                             {{ itemsPost.title }}

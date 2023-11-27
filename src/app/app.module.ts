@@ -21,6 +21,7 @@ import { ChartModule } from 'primeng/chart';
 import { First100Pipe } from './pipes/first100.pipe';
 import { DottDateFormat } from './pipes/dottdateformat.pipe';
 import { DateTimeFormat } from './pipes/datetimeformat.pipe';
+import { ThousandPipe } from './pipes/thousand.pipe';
 import { PostDetailsComponent } from './pages/post-details/post-details.component';
 import { PostsPageComponent } from './pages/posts-page/posts-page.component';
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
@@ -38,6 +39,7 @@ registerLocaleData(localeRu);
     First100Pipe,
     DottDateFormat,
     DateTimeFormat,
+    ThousandPipe,
     PostDetailsComponent,
     PostsPageComponent
   ],
