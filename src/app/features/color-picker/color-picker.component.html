@@ -1,0 +1,8 @@
+<div class="wrapper">
+    <p-colorPicker class="colorpicker" [(ngModel)]="color" [inline]="true"></p-colorPicker>
+    <p-slider class="color-slider" [(ngModel)]="opacityPercent"></p-slider>
+    <div class="colorvalue">
+        <p-inputMask class="color-input" [(ngModel)]="color" mask="#******" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" type="text" placeholder="Hex color"></p-inputMask>
+        <p-inputNumber class="opacity-input" [(ngModel)]="opacityPercent" suffix=" %" mode="decimal" [min]="0" [max]="100" placeholder="Opacity"></p-inputNumber>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    height: 244px;
+    width: 202px;
+
+    border: solid 1px #ccc;
+    border-radius: 12px;
+    padding: 15px;
+    p-colorPicker::ng-deep {
+        margin-bottom: 3px;
+        .p-colorpicker-panel {
+            width: 0;
+            height: 150px;
+            border: none;
+            .p-colorpicker-color-selector {
+                width: 150px;
+                height: 150px;
+                top: 0px;
+                left: 0px;
+                border-radius: 4px;
+            }    
+            .p-colorpicker-hue-handle {
+                top: 150px;
+                left: 2px;
+                width: 12px;
+                height: 12px;
+                opacity: 100%;
+                border-radius: 50%;
+            }
+            .p-colorpicker-hue {
+                width: 12px;
+                height: 150px;
+                top: 0px;
+                left: 160px;
+                border-radius: 12px;
+            }
+            // .p-colorpicker-color {
+            //     background: transparent url(../../../assets/images/color.png) contain left top;
+            // }
+        }  
+    }
+    p-slider::ng-deep {
+        .p-slider-handle {
+            height: 0.8rem;
+            width: 0.8rem;
+            background: transparent;
+            border: 2px solid #ffffff;
+        }
+        .p-slider-horizontal {
+            height: 12px;
+            .p-slider-handle {
+                top: 100%;
+                margin-top: -0.8rem;
+                margin-left: -0.5715rem;
+            }
+        }
+        .p-slider-range {
+            border-radius: 10px;
+            background: linear-gradient(90deg, rgba(79, 70, 229, 0.00) 0%, #8f8f93 100%), lightgray 0% 0% / 17.000000178813934px 17.000000178813934px repeat;
+        }
+    }
+    .colorvalue {
+        margin-top: 10px;
+        display: grid;
+        grid-template: 32px / 95px 67px;
+        gap: 10px;
+        p-inputMask::ng-deep .p-inputtext { 
+            width: 95px;
+            height: 32px; 
+        }
+        p-inputnumber::ng-deep .p-inputtext { 
+            width: 67px;
+            height: 32px; 
+        }
+    }  
+}
